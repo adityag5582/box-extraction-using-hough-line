@@ -76,7 +76,7 @@ def box_extraction(img_for_box_extraction_path, cropped_dir_path):
         x, y, w, h = cv2.boundingRect(c)
 
         # If the box height is greater then 20, widht is >80, then only save it as a box in "cropped/" folder.
-        if (w > 80 and h > 20) and w > 1*h:
+        if (w > 40 and h > 60) and h > 1.5*w:
             idx += 1
             new_img = img[y:y+h, x:x+w]
             cv2.imwrite(cropped_dir_path+str(idx) + '.png', new_img)
@@ -87,4 +87,4 @@ def box_extraction(img_for_box_extraction_path, cropped_dir_path):
     # cv2.imwrite("./Temp/img_contour.jpg", img)
 
 
-box_extraction("phone.jpg", "./Cropped/")
+box_extraction("priyanshi.jpg", "./Cropped/")
